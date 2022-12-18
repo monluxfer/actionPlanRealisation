@@ -6,7 +6,7 @@ using Services.Interfaces;
 
 namespace Services
 {
-    internal sealed class AuthorService : IAuthorService
+    public class AuthorService : IAuthorService
     {
         private readonly IRepositoryManager _repositoryManager;
 

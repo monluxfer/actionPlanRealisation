@@ -33,5 +33,10 @@ namespace Library.Data.Repositories
         {
             _libraryDbContext.Mangas.Remove(manga);
         }
+
+        public async Task<IEnumerable<Manga>> GetAllAsync(CancellationToken cancellationToken = default)
+        {
+            return await _libraryDbContext.Mangas.ToListAsync(cancellationToken);
+        }
     }
 }

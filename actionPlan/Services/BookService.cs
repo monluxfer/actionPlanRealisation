@@ -3,15 +3,10 @@ using Library.Domain.Entities;
 using Library.Domain.Repositories;
 using Mapster;
 using Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services
 {
-    public sealed class BookService : IBookService
+    public class BookService : IBookService
     {
         private readonly IRepositoryManager _repositoryManager;
 

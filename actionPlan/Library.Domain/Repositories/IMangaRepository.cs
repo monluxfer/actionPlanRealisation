@@ -1,9 +1,4 @@
 ﻿using Library.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library.Domain.Repositories
 {
@@ -16,5 +11,7 @@ namespace Library.Domain.Repositories
         void Insert(Manga manga);
 
         void Remove(Manga manga);
+
+        Task<IEnumerable<Manga>> GetAllAsync(CancellationToken cancellationToken = default);
     }
 }
