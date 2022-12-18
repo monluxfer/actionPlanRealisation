@@ -1,11 +1,6 @@
 ﻿using Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Presentation.Controllers
 {
@@ -23,15 +18,23 @@ namespace Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAuthors(CancellationToken cancellationToken)
         {
-            var owners = await _serviceManager.AuthorService.GetAllAsync(cancellationToken);
+            var authors = await _serviceManager.AuthorService.GetAllAsync(cancellationToken);
 
-            return Ok(owners);
+            return Ok(authors);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateOwner([FromBody] AuthorCreationDto ownerForCreationDto)
+        public async Task<IActionResult> CreateAuthor([FromBody] AuthorCreationDto authorDto)
         {
-            var ownerDto = await _serviceManager.AuthorService.CreateAsync(ownerForCreationDto);
+            var author = await _serviceManager.AuthorService.CreateAsync(authorDto);
+
+            return Ok(author);
+        }
+
+        [HttpDelete("{authorId:int}")]
+        public async Task<IActionResult> DeleteAuthor(int authorId, CancellationToken cancellationToken)
+        {
+            await _serviceManager.AuthorService.DeleteAsync(authorId, cancellationToken);
 
             return Ok();
         }

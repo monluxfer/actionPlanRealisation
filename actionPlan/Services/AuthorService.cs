@@ -44,9 +44,9 @@ namespace Services
         {
             var authors = await _repositoryManager.AuthorRepository.GetAllAsync(cancellationToken);
 
-            var authorDto = authors.Adapt<IEnumerable<AuthorDto>>();
+            var authorsDto = authors.Adapt<IEnumerable<AuthorDto>>();
 
-            return authorDto;
+            return authorsDto;
         }
 
         public async Task<AuthorDto> GetByIdAsync(int authorId, CancellationToken cancellationToken = default)

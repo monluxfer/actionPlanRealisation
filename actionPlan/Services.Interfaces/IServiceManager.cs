@@ -9,5 +9,7 @@ namespace Services.Interfaces
     public interface IServiceManager
     {
         IAuthorService AuthorService { get; }
+
+        IBookService bookService { get; }
     }
 }

@@ -13,6 +13,11 @@ namespace Library.Data.Repositories
             _libraryDbContext = libraryDbContext;
         }
 
+        public async Task<IEnumerable<Book>> GetAllAsync(CancellationToken cancellationToken = default)
+        {
+            return await _libraryDbContext.Books.ToListAsync(cancellationToken);
+        }
+
         public async Task<IEnumerable<Book>> GetAllByAuthorIdAsync(int authorId, CancellationToken cancellationToken = default)
         {
             return await _libraryDbContext.Books.Where(book => book.AuthorId == authorId).ToListAsync(cancellationToken);
